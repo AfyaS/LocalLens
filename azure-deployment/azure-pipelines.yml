@@ -1,0 +1,213 @@
+# Azure DevOps Pipeline for Community Clarity AI
+# Automated CI/CD for Azure deployment
+
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+  paths:
+    include:
+    - src/*
+    - azure-deployment/*
+    - package.json
+    - package-lock.json
+
+variables:
+  # Build Configuration
+  buildConfiguration: 'Release'
+  nodeVersion: '18.x'
+  
+  # Azure Configuration
+  azureSubscription: 'Azure-Subscription-Connection'
+  resourceGroupName: 'community-clarity-rg'
+  appServiceName: 'community-clarity-dev-app'
+  functionAppName: 'community-clarity-dev-func'
+  
+  # Environment Variables
+  NODE_ENV: 'production'
+
+stages:
+- stage: Build
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Application'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: $(nodeVersion)
+    
+    - task: Cache@2
+      displayName: 'Cache npm dependencies'
+      inputs:
+        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        restoreKeys: |
+          npm | "$(Agent.OS)"
+        path: '$(System.DefaultWorkingDirectory)/node_modules'
+    
+    - script: |
+        npm ci
+      displayName: 'Install dependencies'
+      workingDirectory: '$(System.DefaultWorkingDirectory)'
+    
+    - script: |
+        npm run build
+      displayName: 'Build application'
+      workingDirectory: '$(System.DefaultWorkingDirectory)'
+    
+    - script: |
+        npm run test
+      displayName: 'Run tests'
+      workingDirectory: '$(System.DefaultWorkingDirectory)'
+      continueOnError: true
+    
+    - task: PublishTestResults@2
+      displayName: 'Publish test results'
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/test-results.xml'
+        mergeTestResults: true
+      condition: always()
+    
+    - task: PublishCodeCoverageResults@1
+      displayName: 'Publish code coverage'
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+      condition: always()
+
+- stage: DeployInfrastructure
+  displayName: 'Deploy Azure Infrastructure'
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - deployment: DeployInfrastructureJob
+    displayName: 'Deploy Infrastructure'
+    environment: 'production'
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+            displayName: 'Deploy Azure Infrastructure'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              scriptType: 'bash'
+              scriptLocation: 'scriptPath'
+              scriptPath: '$(System.DefaultWorkingDirectory)/azure-deployment/deploy-azure.sh'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/azure-deployment'
+
+- stage: DeployAppService
+  displayName: 'Deploy App Service'
+  dependsOn: Build
+  jobs:
+  - deployment: DeployAppServiceJob
+    displayName: 'Deploy to App Service'
+    environment: 'production'
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            displayName: 'Deploy to Azure App Service'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: 'webAppLinux'
+              appName: $(appServiceName)
+              resourceGroupName: $(resourceGroupName)
+              package: '$(System.DefaultWorkingDirectory)/dist'
+              runtimeStack: 'NODE|18-lts'
+              startUpCommand: 'npm start'
+
+- stage: DeployFunctions
+  displayName: 'Deploy Azure Functions'
+  dependsOn: Build
+  jobs:
+  - deployment: DeployFunctionsJob
+    displayName: 'Deploy Azure Functions'
+    environment: 'production'
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureFunctionApp@1
+            displayName: 'Deploy to Azure Functions'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: 'functionAppLinux'
+              appName: $(functionAppName)
+              resourceGroupName: $(resourceGroupName)
+              package: '$(System.DefaultWorkingDirectory)/azure-deployment/azure-functions'
+              runtimeStack: 'NODE|18-lts'
+
+- stage: RunPostDeploymentTests
+  displayName: 'Post-Deployment Tests'
+  dependsOn: [DeployAppService, DeployFunctions]
+  jobs:
+  - job: PostDeploymentTestJob
+    displayName: 'Run Post-Deployment Tests'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Run Health Checks'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          # Test App Service health
+          echo "Testing App Service health..."
+          curl -f https://$(appServiceName).azurewebsites.net/health || exit 1
+          
+          # Test Function App health
+          echo "Testing Function App health..."
+          curl -f https://$(functionAppName).azurewebsites.net/api/health || exit 1
+          
+          echo "All health checks passed!"
+
+- stage: Notify
+  displayName: 'Send Notifications'
+  dependsOn: [RunPostDeploymentTests]
+  condition: always()
+  jobs:
+  - job: NotifyJob
+    displayName: 'Send Deployment Notifications'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Send Success Notification'
+      condition: succeeded()
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          echo "✅ Deployment successful!"
+          echo "App Service: https://$(appServiceName).azurewebsites.net"
+          echo "Function App: https://$(functionAppName).azurewebsites.net"
+    
+    - task: AzureCLI@2
+      displayName: 'Send Failure Notification'
+      condition: failed()
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          echo "❌ Deployment failed!"
+          echo "Check the pipeline logs for details."

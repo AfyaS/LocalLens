@@ -36,7 +36,7 @@ LocalLens is a comprehensive civic engagement platform that connects citizens wi
 ## 🏗️ Technical Architecture
 
 ### **Frontend Stack**
-- **React 18** with TypeScript for type-safe development
+- **JavaScript/TypeScript** and **React 18** with JavaScript/TypeScript for type-safe development
 - **Vite** for lightning-fast build times and HMR
 - **Tailwind CSS** for utility-first styling
 - **Radix UI** for accessible component primitives

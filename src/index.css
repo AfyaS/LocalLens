@@ -1,0 +1,617 @@
+@import url('https://fonts.googleapis.com/css2?family=OpenDyslexic:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local Lens Design System - Accessible Civic Engagement
+All colors MUST be HSL for accessibility and consistency.
+*/
+
+@layer base {
+  :root {
+    /* Core Theme Colors */
+    --background: 0 0% 100%;
+    --foreground: 217 32% 17%;
+
+    /* Civic Primary - Deep trustworthy blue */
+    --primary: 217 71% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 71% 63%;
+    --primary-dark: 217 71% 43%;
+
+    /* Community Secondary - Accessible green */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 142 76% 46%;
+
+    /* Impact Accent - Warm community orange */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 25 95% 63%;
+
+    /* Neutral System */
+    --muted: 217 12% 94%;
+    --muted-foreground: 217 12% 46%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 32% 17%;
+
+    /* Civic Gradients */
+    --gradient-civic: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-community: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-impact: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%);
+
+    /* Accessibility & Interaction */
+    --border: 217 12% 84%;
+    --input: 217 12% 84%;
+    --ring: 217 71% 53%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Shadows & Effects */
+    --shadow-civic: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-community: 0 10px 40px -10px hsl(var(--secondary) / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(217 12% 46% / 0.15);
+
+    /* Accessibility Transitions */
+    --transition-accessible: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.2s ease-in-out;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - Maintaining accessibility contrast */
+    --background: 217 32% 8%;
+    --foreground: 0 0% 95%;
+
+    --primary: 217 71% 63%;
+    --primary-foreground: 217 32% 8%;
+    --primary-light: 217 71% 73%;
+    --primary-dark: 217 71% 53%;
+
+    --secondary: 142 76% 46%;
+    --secondary-foreground: 217 32% 8%;
+    --secondary-light: 142 76% 56%;
+
+    --accent: 25 95% 63%;
+    --accent-foreground: 217 32% 8%;
+    --accent-light: 25 95% 73%;
+
+    --muted: 217 12% 15%;
+    --muted-foreground: 217 12% 65%;
+    --card: 217 32% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --border: 217 12% 20%;
+    --input: 217 12% 20%;
+    --ring: 217 71% 63%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Dark mode gradients */
+    --gradient-civic: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-community: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-impact: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Accessibility utilities */
+  .sr-only-focusable:focus {
+    @apply not-sr-only;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --border: 0 0% 0%;
+      --ring: 0 0% 0%;
+    }
+  }
+
+  /* Civic-specific classes */
+  .gradient-civic {
+    background: var(--gradient-civic);
+  }
+
+  .gradient-community {
+    background: var(--gradient-community);
+  }
+
+  .gradient-impact {
+    background: var(--gradient-impact);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-civic {
+    box-shadow: var(--shadow-civic);
+  }
+
+  .shadow-community {
+    box-shadow: var(--shadow-community);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .transition-accessible {
+    transition: var(--transition-accessible);
+  }
+
+  .transition-gentle {
+    transition: var(--transition-gentle);
+  }
+
+  /* High contrast mode - Enhanced visibility (≥4.5:1 ratio) */
+  :root.high-contrast {
+    --background: 0 0% 0% !important;
+    --foreground: 0 0% 100% !important;
+    --card: 0 0% 5% !important;
+    --card-foreground: 0 0% 100% !important;
+    --muted: 0 0% 15% !important;
+    --muted-foreground: 0 0% 90% !important;
+    --border: 0 0% 100% !important;
+    --input: 0 0% 10% !important;
+    --primary: 210 100% 70% !important;
+    --primary-foreground: 0 0% 0% !important;
+    --secondary: 120 100% 60% !important;
+    --secondary-foreground: 0 0% 0% !important;
+    --accent: 60 100% 70% !important;
+    --accent-foreground: 0 0% 0% !important;
+  }
+
+  html.high-contrast {
+    --background: 0 0% 0% !important;
+    --foreground: 0 0% 100% !important;
+    --card: 0 0% 5% !important;
+    --card-foreground: 0 0% 100% !important;
+    --muted: 0 0% 15% !important;
+    --muted-foreground: 0 0% 90% !important;
+    --border: 0 0% 100% !important;
+    --input: 0 0% 10% !important;
+    --primary: 210 100% 70% !important;
+    --primary-foreground: 0 0% 0% !important;
+    --secondary: 120 100% 60% !important;
+    --secondary-foreground: 0 0% 0% !important;
+    --accent: 60 100% 70% !important;
+    --accent-foreground: 0 0% 0% !important;
+  }
+
+  body.high-contrast {
+    --background: 0 0% 0% !important;
+    --foreground: 0 0% 100% !important;
+    --card: 0 0% 5% !important;
+    --card-foreground: 0 0% 100% !important;
+    --muted: 0 0% 15% !important;
+    --muted-foreground: 0 0% 90% !important;
+    --border: 0 0% 100% !important;
+    --input: 0 0% 10% !important;
+    --primary: 210 100% 70% !important;
+    --primary-foreground: 0 0% 0% !important;
+    --secondary: 120 100% 60% !important;
+    --secondary-foreground: 0 0% 0% !important;
+    --accent: 60 100% 70% !important;
+    --accent-foreground: 0 0% 0% !important;
+  }
+
+  .high-contrast body,
+  body.high-contrast {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  html.high-contrast body {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast *,
+  html.high-contrast *,
+  body.high-contrast * {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Force high contrast on all elements */
+  .high-contrast h1,
+  .high-contrast h2,
+  .high-contrast h3,
+  .high-contrast h4,
+  .high-contrast h5,
+  .high-contrast h6,
+  html.high-contrast h1,
+  html.high-contrast h2,
+  html.high-contrast h3,
+  html.high-contrast h4,
+  html.high-contrast h5,
+  html.high-contrast h6,
+  body.high-contrast h1,
+  body.high-contrast h2,
+  body.high-contrast h3,
+  body.high-contrast h4,
+  body.high-contrast h5,
+  body.high-contrast h6 {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast p,
+  .high-contrast span,
+  .high-contrast div,
+  html.high-contrast p,
+  html.high-contrast span,
+  html.high-contrast div,
+  body.high-contrast p,
+  body.high-contrast span,
+  body.high-contrast div {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  .high-contrast .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast .bg-background {
+    background-color: hsl(var(--background)) !important;
+  }
+
+  /* Override all Tailwind classes for high contrast */
+  .high-contrast .bg-white {
+    background-color: hsl(var(--background)) !important;
+  }
+
+  .high-contrast .text-black {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast .text-gray-500,
+  .high-contrast .text-gray-600,
+  .high-contrast .text-gray-700,
+  .high-contrast .text-gray-800,
+  .high-contrast .text-gray-900 {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .high-contrast .bg-gray-50,
+  .high-contrast .bg-gray-100,
+  .high-contrast .bg-gray-200 {
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  .high-contrast .border-gray-200,
+  .high-contrast .border-gray-300 {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Additional high contrast overrides for components */
+  .high-contrast .bg-card {
+    background-color: hsl(var(--card)) !important;
+  }
+
+  .high-contrast .text-card-foreground {
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  .high-contrast .bg-muted {
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  .high-contrast .border-border {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  .high-contrast .bg-primary {
+    background-color: hsl(var(--primary)) !important;
+  }
+
+  .high-contrast .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+
+  .high-contrast .bg-secondary {
+    background-color: hsl(var(--secondary)) !important;
+  }
+
+  .high-contrast .text-secondary {
+    color: hsl(var(--secondary)) !important;
+  }
+
+  .high-contrast .bg-accent {
+    background-color: hsl(var(--accent)) !important;
+  }
+
+  .high-contrast .text-accent {
+    color: hsl(var(--accent)) !important;
+  }
+
+  .high-contrast .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  /* Final override to ensure high contrast works - Force black background and white text */
+  html.high-contrast,
+  body.high-contrast {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  html.high-contrast *,
+  body.high-contrast * {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+
+  html.high-contrast .bg-background,
+  body.high-contrast .bg-background,
+  html.high-contrast .bg-card,
+  body.high-contrast .bg-card {
+    background-color: #111111 !important;
+  }
+
+  html.high-contrast .bg-primary,
+  body.high-contrast .bg-primary {
+    background-color: #0066cc !important;
+    color: #000000 !important;
+  }
+
+  html.high-contrast .bg-secondary,
+  body.high-contrast .bg-secondary {
+    background-color: #00cc66 !important;
+    color: #000000 !important;
+  }
+
+  .high-contrast .bg-card {
+    background-color: hsl(var(--card)) !important;
+  }
+
+  .high-contrast .text-card-foreground {
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  .high-contrast .bg-muted {
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  .high-contrast .border-border {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  .high-contrast .bg-primary {
+    background-color: hsl(var(--primary)) !important;
+  }
+
+  .high-contrast .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+
+  .high-contrast .bg-secondary {
+    background-color: hsl(var(--secondary)) !important;
+  }
+
+  .high-contrast .text-secondary {
+    color: hsl(var(--secondary)) !important;
+  }
+
+  .high-contrast .bg-accent {
+    background-color: hsl(var(--accent)) !important;
+  }
+
+  .high-contrast .text-accent {
+    color: hsl(var(--accent)) !important;
+  }
+
+  /* Additional high contrast overrides */
+  .high-contrast button {
+    background-color: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+    border: 2px solid hsl(var(--border)) !important;
+  }
+
+  .high-contrast input, .high-contrast textarea, .high-contrast select {
+    background-color: hsl(var(--input)) !important;
+    color: hsl(var(--foreground)) !important;
+    border: 2px solid hsl(var(--border)) !important;
+  }
+
+  .high-contrast a {
+    color: hsl(var(--primary)) !important;
+    text-decoration: underline !important;
+  }
+
+  .high-contrast a:hover {
+    color: hsl(var(--accent)) !important;
+  }
+
+  .high-contrast .gradient-civic {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary)) 100%) !important;
+  }
+
+  .high-contrast .gradient-community {
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary)) 100%) !important;
+  }
+
+  .high-contrast .gradient-impact {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent)) 100%) !important;
+  }
+
+  .dyslexia-font {
+    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+  }
+
+  .dyslexia-font * {
+    font-family: 'OpenDyslexic', Arial, sans-serif !important;
+  }
+
+  /* Accessible font sizing */
+  :root {
+    --accessible-font-size: 16px;
+  }
+
+  /* Apply font size globally when accessibility settings are active */
+  body {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  /* Force font size on text elements */
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  body p, body span, body div, body button, body input,
+  body textarea, body label, body a {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  /* Dynamic font size class */
+  .dynamic-font-size {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  .dynamic-font-size h1,
+  .dynamic-font-size h2,
+  .dynamic-font-size h3,
+  .dynamic-font-size h4,
+  .dynamic-font-size h5,
+  .dynamic-font-size h6,
+  .dynamic-font-size p,
+  .dynamic-font-size span,
+  .dynamic-font-size div,
+  .dynamic-font-size button,
+  .dynamic-font-size input,
+  .dynamic-font-size textarea,
+  .dynamic-font-size label,
+  .dynamic-font-size a {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  body h1 {
+    font-size: calc(var(--accessible-font-size) * 2.5) !important;
+  }
+
+  body h2 {
+    font-size: calc(var(--accessible-font-size) * 2) !important;
+  }
+
+  body h3 {
+    font-size: calc(var(--accessible-font-size) * 1.5) !important;
+  }
+
+  body h4 {
+    font-size: calc(var(--accessible-font-size) * 1.25) !important;
+  }
+
+  body p,
+  body span,
+  body div,
+  body button,
+  body input,
+  body textarea,
+  body label {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  /* Legacy accessible-text class for backward compatibility */
+  .accessible-text {
+    font-size: var(--accessible-font-size) !important;
+  }
+
+  .accessible-text h1 {
+    font-size: calc(var(--accessible-font-size) * 2.5);
+  }
+
+  .accessible-text h2 {
+    font-size: calc(var(--accessible-font-size) * 2);
+  }
+
+  .accessible-text h3 {
+    font-size: calc(var(--accessible-font-size) * 1.5);
+  }
+
+  .accessible-text p,
+  .accessible-text span,
+  .accessible-text div {
+    font-size: var(--accessible-font-size);
+  }
+}
+
+/* Language-specific styling */
+.lang-es {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.lang-pt {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.lang-zh {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'SimSun', sans-serif;
+}
+
+.lang-ht {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Language-specific content visibility */
+.lang-es .lang-en-only,
+.lang-pt .lang-en-only,
+.lang-zh .lang-en-only,
+.lang-ht .lang-en-only {
+  display: none;
+}
+
+.lang-en .lang-es-only,
+.lang-en .lang-pt-only,
+.lang-en .lang-zh-only,
+.lang-en .lang-ht-only {
+  display: none;
+}

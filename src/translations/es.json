@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "community": "Comunidad",
+    "features": "Características",
+    "accessibility": "Accesibilidad"
+  },
+  "hero": {
+    "title": "Local Lens",
+    "subtitle": "Tu Portal al Compromiso Cívico",
+    "description": "Conecta con tu comunidad, participa en la democracia y crea cambios significativos a través de herramientas accesibles de compromiso cívico.",
+    "getStarted": "Comenzar",
+    "learnMore": "Aprender Más"
+  },
+  "features": {
+    "title": "Características",
+    "subtitle": "Empoderando el Compromiso Cívico",
+    "universalAccess": {
+      "title": "Acceso Universal",
+      "description": "Diseñado para todos, independientemente de la capacidad o idioma",
+      "features": [
+        "Compatibilidad con lectores de pantalla para usuarios con discapacidad visual",
+        "Modo de alto contraste y tamaños de texto personalizables",
+        "Soporte de navegación por teclado para discapacidades motoras",
+        "Soporte multiidioma con traducción en tiempo real",
+        "Integración de video ASL para usuarios sordos y con problemas de audición",
+        "Opciones de lenguaje simplificado para documentos gubernamentales complejos"
+      ]
+    },
+    "realTimeUpdates": {
+      "title": "Actualizaciones en Tiempo Real",
+      "description": "Datos en vivo de fuentes gubernamentales y organizaciones comunitarias",
+      "features": [
+        "Horarios y agendas de reuniones gubernamentales en vivo",
+        "Registros de votación y actualizaciones legislativas en tiempo real",
+        "Notificaciones instantáneas para nuevas oportunidades cívicas",
+        "Transmisión en vivo de reuniones y audiencias públicas",
+        "Actualizaciones automatizadas de organizaciones comunitarias",
+        "Colaboración en tiempo real en proyectos cívicos",
+        "Chat en vivo y foros de discusión"
+      ]
+    },
+    "aiPowered": {
+      "title": "Impulsado por IA",
+      "description": "Características inteligentes para ayudarte a participar más efectivamente",
+      "features": [
+        "Emparejamiento inteligente de oportunidades cívicas con tus intereses",
+        "Traducción de idiomas impulsada por IA para soporte multilingüe",
+        "Resumen inteligente de documentos gubernamentales complejos",
+        "Recomendaciones personalizadas para acciones cívicas",
+        "Características de accesibilidad automatizadas y acomodaciones",
+        "Chatbot de IA para orientación de compromiso cívico",
+        "Análisis predictivo para el impacto comunitario"
+      ]
+    },
+    "readyToGetStarted": {
+      "title": "¿Listo para Comenzar?",
+      "description": "Usa Local Lens para participar en la democracia y crear cambios en tu comunidad",
+      "joinCommunity": "Unirse a la Comunidad",
+      "learnMore": "Aprender Más"
+    }
+  },
+  "community": {
+    "title": "Comunidad",
+    "subtitle": "Conecta con Tu Comunidad",
+    "description": "Descubre oportunidades de compromiso cívico, posiciones de voluntariado y conéctate con tus representantes.",
+    "syncData": "Sincronizar Datos",
+    "syncing": "Sincronizando...",
+    "tabs": {
+      "events": "Reuniones Públicas",
+      "volunteer": "Voluntario",
+      "representatives": "Representantes",
+      "meetings": "Próximas Reuniones Públicas"
+    },
+    "categories": {
+      "all": "Todos",
+      "environment": "Medio Ambiente",
+      "housing": "Vivienda",
+      "service": "Servicio Comunitario",
+      "government": "Gobierno"
+    },
+    "governmentResources": {
+      "title": "Recursos Gubernamentales",
+      "subtitle": "Accede a documentos gubernamentales comunes y materiales de reuniones pasadas",
+      "commonDocuments": "Documentos Comunes",
+      "pastMeetingMaterials": "Materiales de Reuniones Pasadas",
+      "quickLinks": "Enlaces Rápidos"
+    }
+  },
+  "accessibility": {
+    "title": "Accesibilidad",
+    "subtitle": "Configuración de Acceso Universal",
+    "description": "Personaliza tu experiencia para satisfacer tus necesidades de accesibilidad.",
+    "settings": {
+      "title": "Configuración de Accesibilidad",
+      "highContrast": "Modo de Alto Contraste",
+      "dyslexiaFont": "Modo Amigable para Dislexia",
+      "fontSize": "Tamaño de Fuente",
+      "language": "Idiomas Prioritarios (MA)"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "pt": "Português",
+      "zh": "中文",
+      "ht": "Kreyòl Ayisyen"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Local Lens. Construido con accesibilidad y compromiso cívico en mente."
+  }
+}

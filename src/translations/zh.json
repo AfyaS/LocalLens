@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "首页",
+    "community": "社区",
+    "features": "功能",
+    "accessibility": "无障碍"
+  },
+  "hero": {
+    "title": "Local Lens",
+    "subtitle": "您的公民参与门户",
+    "description": "与您的社区联系，参与民主，通过无障碍的公民参与工具创造有意义的改变。",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "features": {
+    "title": "功能",
+    "subtitle": "赋能公民参与",
+    "universalAccess": {
+      "title": "通用访问",
+      "description": "为每个人设计，无论能力或语言",
+      "features": [
+        "为视障用户提供屏幕阅读器兼容性",
+        "高对比度模式和可自定义文本大小",
+        "为运动障碍提供键盘导航支持",
+        "多语言支持和实时翻译",
+        "为聋人和听力障碍用户提供ASL视频集成",
+        "为复杂政府文档提供简化语言选项"
+      ]
+    },
+    "realTimeUpdates": {
+      "title": "实时更新",
+      "description": "来自政府来源和社区组织的实时数据",
+      "features": [
+        "实时政府会议安排和议程",
+        "实时投票记录和立法更新",
+        "新公民机会的即时通知",
+        "公共会议和听证会的实时直播",
+        "社区组织的自动更新",
+        "公民项目的实时协作",
+        "实时聊天和讨论论坛"
+      ]
+    },
+    "aiPowered": {
+      "title": "AI驱动",
+      "description": "智能功能帮助您更有效地参与",
+      "features": [
+        "智能匹配公民机会与您的兴趣",
+        "AI驱动的语言翻译支持多语言",
+        "复杂政府文档的智能摘要",
+        "公民行动的个性化推荐",
+        "自动无障碍功能和住宿",
+        "公民参与指导的AI聊天机器人",
+        "社区影响的预测分析"
+      ]
+    },
+    "readyToGetStarted": {
+      "title": "准备开始了吗？",
+      "description": "使用Local Lens参与民主并在您的社区中创造改变",
+      "joinCommunity": "加入社区",
+      "learnMore": "了解更多"
+    }
+  },
+  "community": {
+    "title": "社区",
+    "subtitle": "与您的社区联系",
+    "description": "发现公民参与机会、志愿者职位并与您的代表联系。",
+    "syncData": "同步数据",
+    "syncing": "同步中...",
+    "tabs": {
+      "events": "公共会议",
+      "volunteer": "志愿者",
+      "representatives": "代表",
+      "meetings": "即将举行的公共会议"
+    },
+    "categories": {
+      "all": "全部",
+      "environment": "环境",
+      "housing": "住房",
+      "service": "社区服务",
+      "government": "政府"
+    },
+    "governmentResources": {
+      "title": "政府资源",
+      "subtitle": "访问常见政府文档和过往会议材料",
+      "commonDocuments": "常见文档",
+      "pastMeetingMaterials": "过往会议材料",
+      "quickLinks": "快速链接"
+    }
+  },
+  "accessibility": {
+    "title": "无障碍",
+    "subtitle": "通用访问设置",
+    "description": "自定义您的体验以满足您的无障碍需求。",
+    "settings": {
+      "title": "无障碍设置",
+      "highContrast": "高对比度模式",
+      "dyslexiaFont": "阅读障碍友好模式",
+      "fontSize": "字体大小",
+      "language": "优先语言（MA）"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "pt": "Português",
+      "zh": "中文",
+      "ht": "Kreyòl Ayisyen"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Local Lens. 以无障碍和公民参与为理念构建。"
+  }
+}

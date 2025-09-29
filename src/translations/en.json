@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "Home",
+    "community": "Community",
+    "features": "Features",
+    "accessibility": "Accessibility"
+  },
+  "hero": {
+    "title": "Local Lens",
+    "subtitle": "Your Gateway to Civic Engagement",
+    "description": "Connect with your community, participate in democracy, and create meaningful change through accessible civic engagement tools.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "title": "Features",
+    "subtitle": "Empowering Civic Engagement",
+    "universalAccess": {
+      "title": "Universal Access",
+      "description": "Designed for everyone, regardless of ability or language",
+      "features": [
+        "Screen reader compatibility for visually impaired users",
+        "High contrast mode and customizable text sizes",
+        "Keyboard navigation support for motor disabilities",
+        "Multi-language support with real-time translation",
+        "ASL video integration for deaf and hard-of-hearing users",
+        "Simplified language options for complex government documents"
+      ]
+    },
+    "realTimeUpdates": {
+      "title": "Real-Time Updates",
+      "description": "Live data from government sources and community organizations",
+      "features": [
+        "Live government meeting schedules and agendas",
+        "Real-time voting records and legislative updates",
+        "Instant notifications for new civic opportunities",
+        "Live streaming of public meetings and hearings",
+        "Automated updates from community organizations",
+        "Real-time collaboration on civic projects",
+        "Live chat and discussion forums"
+      ]
+    },
+    "aiPowered": {
+      "title": "AI-Powered",
+      "description": "Intelligent features to help you engage more effectively",
+      "features": [
+        "Smart matching of civic opportunities to your interests",
+        "AI-powered language translation for multilingual support",
+        "Intelligent summarization of complex government documents",
+        "Personalized recommendations for civic actions",
+        "Automated accessibility features and accommodations",
+        "AI chatbot for civic engagement guidance",
+        "Predictive analytics for community impact"
+      ]
+    },
+    "readyToGetStarted": {
+      "title": "Ready to Get Started?",
+      "description": "Use Local Lens to participate in democracy and create change in your community",
+      "joinCommunity": "Join Community",
+      "learnMore": "Learn More"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Connect with Your Community",
+    "description": "Discover civic engagement opportunities, volunteer positions, and connect with your representatives.",
+    "syncData": "Sync Data",
+    "syncing": "Syncing...",
+    "tabs": {
+      "events": "Public Meetings",
+      "volunteer": "Volunteer",
+      "representatives": "Representatives",
+      "meetings": "Upcoming Public Meetings"
+    },
+    "categories": {
+      "all": "All",
+      "environment": "Environment",
+      "housing": "Housing",
+      "service": "Community Service",
+      "government": "Government"
+    },
+    "governmentResources": {
+      "title": "Government Resources",
+      "subtitle": "Access common government documents and past meeting materials",
+      "commonDocuments": "Common Documents",
+      "pastMeetingMaterials": "Past Meeting Materials",
+      "quickLinks": "Quick Links"
+    }
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "subtitle": "Universal Access Settings",
+    "description": "Customize your experience to meet your accessibility needs.",
+    "settings": {
+      "title": "Accessibility Settings",
+      "highContrast": "High Contrast Mode",
+      "dyslexiaFont": "Dyslexia-Friendly Mode",
+      "fontSize": "Font Size",
+      "language": "Priority Languages (MA)"
+    },
+    "languages": {
+      "en": "English",
+      "es": "Español",
+      "pt": "Português",
+      "zh": "中文",
+      "ht": "Kreyòl Ayisyen"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Local Lens. Built with accessibility and civic engagement in mind."
+  }
+}

@@ -78,7 +78,7 @@ action_comments         -- Community discussions
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/community-clarity-ai.git
+   git clone https://github.com/AfyaS/community-clarity-ai.git
    cd community-clarity-ai
    ```
 
@@ -193,8 +193,7 @@ This project was developed with the assistance of **ChatGPT** for code generatio
 ## 📞 Support
 
 - **Documentation**: [Full Documentation](https://docs.locallens.ai)
-- **Issues**: [GitHub Issues](https://github.com/your-username/locallens/issues)
-- **Email**: support@locallens.ai
+- **Issues**: [GitHub Issues](https://github.com/AfyaS/locallens/issues)
 
 ## 🌟 Live Demo
 

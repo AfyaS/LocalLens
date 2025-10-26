@@ -59,4 +59,4 @@ bun.lockb
 yarn.lock
 
 # Azure deployment artifacts
-*.zip
+*.zipLocalLens.zip

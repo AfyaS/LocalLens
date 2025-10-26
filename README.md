@@ -36,11 +36,7 @@ LocalLens is a comprehensive civic engagement platform that connects citizens wi
 ## 🏗️ Technical Architecture
 
 ### **Frontend Stack**
-<<<<<<< HEAD
 - **JavaScript/TypeScript** and **React 18** with JavaScript/TypeScript for type-safe development
-=======
-- **React 18** with TypeScript for type-safe development
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
 - **Vite** for lightning-fast build times and HMR
 - **Tailwind CSS** for utility-first styling
 - **Radix UI** for accessible component primitives
@@ -82,11 +78,7 @@ action_comments         -- Community discussions
 
 1. **Clone the repository**
    ```bash
-<<<<<<< HEAD
    git clone https://github.com/AfyaS/community-clarity-ai.git
-=======
-   git clone https://github.com/your-username/community-clarity-ai.git
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
    cd community-clarity-ai
    ```
 
@@ -183,15 +175,12 @@ We welcome contributions to make civic engagement more accessible! Please see ou
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<<<<<<< HEAD
 ## 👨‍💻 Developer
 
 **Afya Shaikh** - Full-stack developer and civic engagement advocate
 
 This project was developed with the assistance of **ChatGPT** for code generation, architecture planning, and technical guidance throughout the development process.
 
-=======
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
 ## 🙏 Acknowledgments
 
 - **Massachusetts Legislature** for providing open API access
@@ -199,20 +188,12 @@ This project was developed with the assistance of **ChatGPT** for code generatio
 - **OpenDyslexic** for dyslexia-friendly font support
 - **Radix UI** for accessible component primitives
 - **React Community** for the amazing ecosystem
-<<<<<<< HEAD
 - **ChatGPT** for AI-assisted development and technical guidance
-=======
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
 
 ## 📞 Support
 
 - **Documentation**: [Full Documentation](https://docs.locallens.ai)
-<<<<<<< HEAD
 - **Issues**: [GitHub Issues](https://github.com/AfyaS/locallens/issues)
-=======
-- **Issues**: [GitHub Issues](https://github.com/your-username/locallens/issues)
-- **Email**: support@locallens.ai
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
 
 ## 🌟 Live Demo
 
@@ -222,19 +203,11 @@ This project was developed with the assistance of **ChatGPT** for code generatio
 
 <div align="center">
 
-<<<<<<< HEAD
 **Built for civic engagement and accessibility**
-=======
-**Built with ❤️ for civic engagement and accessibility**
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)
 
 [![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://azure.microsoft.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 095c6b9 (Initial commit: LocalLens - Civic Engagement Platform)

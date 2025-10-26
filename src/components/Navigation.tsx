@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Accessibility, Users, BarChart3, Languages, LogOut, User, Bell } from "lucide-react";
+import { Menu, X, Accessibility, Users, BarChart3, Languages, LogOut, User, Bell, GraduationCap } from "lucide-react";
 import CustomLogo from "./CustomLogo";
 import { useAuth } from "@/contexts/AuthContext";
 import NotificationSystem from "./NotificationSystem";
@@ -23,6 +23,7 @@ const Navigation = () => {
     { href: "/accessibility", label: "Accessibility", icon: Accessibility },
     { href: "/community", label: "Community", icon: Users },
     { href: "/impact", label: "Impact", icon: BarChart3 },
+    { href: "/kids", label: "Kids", icon: GraduationCap },
   ];
 
   return (

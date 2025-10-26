@@ -1,0 +1,11 @@
+{
+  "appLocation": "dist",
+  "apiLocation": "",
+  "outputLocation": "",
+  "appBuildCommand": "npm run build",
+  "apiBuildCommand": "",
+  "run": "npm run dev",
+  "devServerTimeout": 30000,
+  "appDevserverUrl": "http://localhost:5173",
+  "apiDevserverUrl": "http://localhost:7071"
+}

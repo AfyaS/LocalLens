@@ -27,6 +27,34 @@ export interface ApiIntegration {
   status: string;
 }
 
+export interface TrackedActivity {
+  id: string;
+  user_id: string;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  impact_type: string;
+  people_reached: number;
+  hours_spent: number;
+  location: string;
+  notes: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface NewActivityData {
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  impact_type: string;
+  people_reached: number;
+  hours_spent: number;
+  location: string;
+  notes: string;
+}
+
 class AzureApiService {
   private baseUrl: string;
 
@@ -118,6 +146,53 @@ class AzureApiService {
     } catch (error) {
       console.error('Error triggering MA Legislature sync:', error);
       throw error;
+    }
+  }
+
+  // Track user impact/activity
+  async trackImpact(userId: string, activityData: NewActivityData): Promise<any> {
+    try {
+      const response = await fetch(`${this.baseUrl}/trackImpactSimple`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId,
+          ...activityData
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Error tracking impact:', error);
+      throw error;
+    }
+  }
+
+  // Get user's tracked activities
+  async getTrackedActivities(userId: string): Promise<TrackedActivity[]> {
+    try {
+      const response = await fetch(`${this.baseUrl}/trackImpactSimple?userId=${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.activities || [];
+    } catch (error) {
+      console.error('Error fetching tracked activities:', error);
+      return [];
     }
   }
 }

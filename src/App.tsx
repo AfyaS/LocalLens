@@ -19,6 +19,7 @@ import ActionDetails from "./pages/ActionDetails";
 import BrowseActions from "./pages/BrowseActions";
 import ASLServicesPage from "./pages/ASLServices";
 import FeaturesPage from "./pages/Features";
+import KidsPage from "./pages/Kids";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
               <Route path="/community" element={<CommunityPage />} />
               <Route path="/impact" element={<ImpactPage />} />
               <Route path="/features" element={<FeaturesPage />} />
+              <Route path="/kids" element={<KidsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

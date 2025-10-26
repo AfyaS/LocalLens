@@ -211,3 +211,5 @@ This project was developed with the assistance of **ChatGPT** for code generatio
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 </div>
+
+Afya Shaikh
